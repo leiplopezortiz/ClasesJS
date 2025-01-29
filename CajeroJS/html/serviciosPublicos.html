@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Pago Servicios Publicos</title>
+</head>
+<body>
+    <h1>ACME'S BANK</h1>
+    <form action="crearCuenta">
+        <p>Referencia de pago: <input type="text" name="refpago" id="refpago" class="cont"></p>
+        <p>Servicio que desea pagar: <select name="tipoServicio" id="tipoServicio" class="cont">
+            <option value="0">-</option>
+            <option value="1">Agua</option>
+            <option value="2">Luz</option>
+            <option value="3">Gas</option>
+        </select></p>
+        <p>Valor a pagar: <input type="text" name="valor" id="valor" class="cont"></p>
+        <p>Confirmar contraseña contraseña <input type="password" name="password" id="password" class="cont"></p>
+    </form>
+    <input type="button" value="volver" class="boton" id="volver">
+    <script src="/js/cajero.js"></script>
+</body>
+</html>

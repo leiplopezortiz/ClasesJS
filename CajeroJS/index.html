@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>ACME'S BANK</title>
+</head>
+<body>
+    <h1>ACME'S BANK</h1>
+    <input type="button" value="Consignación" class="boton" id="consignacion"><br>
+    <input type="button" value="Retiro" class="boton" id="retiro"><br>
+    <input type="button" value="Servicios Públicos" class="boton" id="servpublico"><br>
+    <input type="button" value="Movimientos" class="boton" id="movimientos"><br>
+    <p>o</p>
+    <a href="/html/crearCuenta.html">Crear cuenta</a>
+    <script src="/js/cajero.js">
+        function initDB(){
+            const openDB = window.indexedDB.open('inventario', 1);
+        
+            openDB.onupgradeneeded = ( init )=> {
+            let inventarioDB = init.target.result;
+        
+            inventarioDB.onerror = () => {
+            console.error('Error cargando la base de datos.');
+            };
+        
+            let table = inventarioDB.createObjectStore('productos', { keyPath: 'id', autoIncrement:true });
+            table.createIndex('codigo', 'codigo', { unique: true });
+        
+        };
+        
+        openDB.onerror = () => console.error('Error abriendo la base de datos');
+        
+        openDB.onsuccess = () => {
+            console.log('Base de datos abierta!');
+        };
+        };
+
+        function agregarProducto(codigo, nombre, proveedor) {
+            const openDB = window.indexedDB.open('inventario', 1);
+            openDB.onsuccess = () => {
+                let inventarioDB = openDB.result
+                const transaction = inventarioDB.transaction("productos", "readwrite");
+                const productosStore = transaction.objectStore("productos");
+            
+                const nuevoProducto = { codigo, nombre, proveedor };
+                const agregarRequest = productosStore.add(nuevoProducto);
+            
+                agregarRequest.onsuccess = () => {
+                console.log("Producto agregado correctamente");
+                };
+            
+                agregarRequest.onerror = (error) => {
+                if(error.target.error.name == "ConstraintError")
+                    console.log("Error: El código del producto ya está registrado.");
+                else
+                    console.log("Error desconocido.", error.target.error.name);
+                };
+            };
+            };
+        initDB();
+        agregarProducto("3","pepe","riopaila")
+    </script>
+</body>
+</html>
