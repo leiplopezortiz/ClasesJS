@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Crear Cuenta</title>
+</head>
+<body>
+    <h1>ACME'S BANK</h1>
+    <form action="crearCuenta" id="frmCrearCuenta">
+        <p>Nombre: <input type="text" name="nombre" id="nombre" class="cont"></p>
+        <p>Tipo de documento: <select name="tipoDocumento" id="tipoDocumento" class="cont">
+            <option value="0">-</option>
+            <option value="1">CC</option>
+            <option value="2">TI</option>
+            <option value="3">CE</option>
+            <option value="4">PASAPORTE</option>
+        </select></p>
+        <p>Numero de documento: <input type="text" name="docu" id="docu" class="cont"></p>
+        <p>Contraseña <input type="password" name="password" id="password" class="cont"></p>
+        <p>Repetir contraseña <input type="password" name="password" id="password" class="cont"></p>
+    </form>
+    <input type="button" value="Registrar" class="boton" id="registrar"> <br>
+    <input type="button" value="volver" class="boton" id="volver">
+    <script src="/js/cajero.js"></script> <!--no linkea correctamente-->
+</body>
+</html> 
