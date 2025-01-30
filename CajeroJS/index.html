@@ -8,14 +8,20 @@
 </head>
 <body>
     <h1>ACME'S BANK</h1>
-    <input type="button" value="Consignación" class="boton" id="consignacion"><br>
-    <input type="button" value="Retiro" class="boton" id="retiro"><br>
+    <input type="button" value="Consignación" class="boton" id="consignacion"> <br>
+    <input type="button" value="Ingresar" class="boton" id="ingresar">
+    <!-- <input type="button" value="Retiro" class="boton" id="retiro"><br>
     <input type="button" value="Servicios Públicos" class="boton" id="servpublico"><br>
-    <input type="button" value="Movimientos" class="boton" id="movimientos"><br>
+    <input type="button" value="Movimientos" class="boton" id="movimientos"><br> -->
     <p>o</p>
     <a href="/html/crearCuenta.html">Crear cuenta</a>
-    <script src="/js/cajero.js">
-        function initDB(){
+    <script src="/js/cajero.js"></script>
+    <script src="/js/eventos.js"></script>
+    <script src="/js/indexdb.js"></script>
+</body>
+</html>
+
+        <!-- function initDB(){
             const openDB = window.indexedDB.open('inventario', 1);
         
             openDB.onupgradeneeded = ( init )=> {
@@ -60,7 +66,4 @@
             };
             };
         initDB();
-        agregarProducto("3","pepe","riopaila")
-    </script>
-</body>
-</html>
+        agregarProducto("3","pepe","riopaila") -->
